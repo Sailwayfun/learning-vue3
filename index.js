@@ -5,7 +5,8 @@ const vm = Vue.createApp({
             lastName: "Doe",
             url: "https://google.com",
             raw_html: `<a href="https://google.com" target="_blank">It's a link</a>`,
-            age: 20
+            age: 20,
+            count: 0
         };
     },
     methods: {
@@ -19,7 +20,7 @@ const vm = Vue.createApp({
         updateLastName(event, message) {
             console.log(message);
             this.lastName = event.target.value;
-        }
+        },
     }
 }).mount("#app");
 
