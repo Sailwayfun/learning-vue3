@@ -14,7 +14,12 @@
       <input type="text" v-model="firstName" />
       <label>Last Name</label>
       <input type="text" v-model="lastName" />
+      <!-- <input type="text" :value="lastName" @input="updateLastName" /> -->
       <a :href="url" target="_blank">It's a link</a>
+      <div v-html="raw_html"></div>
+      <p>{{age}}</p>
+      <button @click="increment">Increment</button>
+      <button @click="age--">Decrement</button>
     </div>
     <!-- <div id="app2">
       <p>{{firstName}}</p>
