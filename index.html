@@ -17,13 +17,13 @@
       <input
         type="text"
         :value="lastName"
-        @input="updateLastName($event, 'last name updated')" />
+        @keyup.enter="updateLastName($event, 'last name updated')" />
       <a :href="url" target="_blank">It's a link</a>
       <a :href="url" @click.prevent="count++">Count: {{count}}</a>
       <div v-html="raw_html"></div>
       <p>{{age}}</p>
       <button @click="increment">Increment</button>
-      <button @click="age--">Decrement</button>
+      <button @click.meta="age--">Decrement</button>
     </div>
     <!-- <div id="app2">
       <p>{{firstName}}</p>
