@@ -24,6 +24,13 @@ const vm = Vue.createApp({
             console.log("fullname is calculated");
             return `${this.firstName} ${this.lastName}`;
         },
+    },
+    watch: {
+        age(newVal, oldVal) {
+            setTimeout(() => {
+                this.age = 20;
+            }, 3000);
+        }
     }
 }).mount("#app");
 
