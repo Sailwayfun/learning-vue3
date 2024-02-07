@@ -10,9 +10,6 @@ const vm = Vue.createApp({
         };
     },
     methods: {
-        fullName() {
-            return `${this.firstName} ${this.lastName}`;
-        },
         increment() {
             this.age++;
             return;
@@ -20,6 +17,12 @@ const vm = Vue.createApp({
         updateLastName(event, message) {
             console.log(message);
             this.lastName = event.target.value;
+        },
+    },
+    computed: {
+        fullName() {
+            console.log("fullname is calculated");
+            return `${this.firstName} ${this.lastName}`;
         },
     }
 }).mount("#app");
