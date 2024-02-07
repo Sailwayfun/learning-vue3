@@ -11,9 +11,11 @@
       <p>{{fullName()}}</p>
       <hr />
       <label>First Name</label>
-      <input type="text" v-model="firstName" />
+      <input type="text" v-model.lazy.trim="firstName" />
       <label>Last Name</label>
       <!-- <input type="text" v-model="lastName" /> -->
+      <label>Age</label>
+      <input type="number" v-model="age" />
       <input
         type="text"
         :value="lastName"
@@ -22,6 +24,7 @@
       <a :href="url" @click.prevent="count++">Count: {{count}}</a>
       <div v-html="raw_html"></div>
       <p>{{age}}</p>
+      <p>{{typeof age}}</p>
       <button @click="increment">Increment</button>
       <button @click.meta="age--">Decrement</button>
     </div>
