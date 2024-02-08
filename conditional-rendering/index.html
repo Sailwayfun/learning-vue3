@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditional Rendering</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="mode === 1">Showing v-if directive content</p>
+      <template v-else-if="mode === 2">
+        <p>Bonus content</p>
+        <h3>Showing v-else-if directive content</h3>
+      </template>
+      <div v-else>Showing v-else directive content</div>
+      <i v-show="mode === 1">v-show content</i>
+      <select v-model.number="mode">
+        <option value="1">v-if</option>
+        <option value="2">v-else-if</option>
+        <option value="3">v-else</option>
+      </select>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
