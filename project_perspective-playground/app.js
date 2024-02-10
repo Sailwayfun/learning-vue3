@@ -16,18 +16,20 @@ const vm = Vue.createApp({
         }
     },
     computed: {
-        rotatedStyles() {
+        box() {
             return {
-                transform: `rotateX(${this.rotateX}deg)
+                transform: `
+                perspective(${this.perspective}px)
+                rotateX(${this.rotateX}deg)
                 rotateY(${this.rotateY}deg)
                 rotateZ(${this.rotateZ}deg)
-                `
+                `,
             };
         },
-        perspectiveStyles() {
-            return {
-                perspective: `${this.perspective}px`
-            };
-        }
+        // perspectiveStyles() {
+        //     return {
+        //         perspective: `${this.perspective}px`
+        //     };
+        // }
     }
 }).mount("#app");
