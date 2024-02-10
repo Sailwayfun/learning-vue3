@@ -13,6 +13,12 @@ const vm = Vue.createApp({
             this.rotateX = 0;
             this.rotateY = 0;
             this.rotateZ = 0;
+        },
+        async copy() {
+            const text = `transform: ${this.box.transform}`;
+            await navigator.clipboard.writeText(text);
+
+            alert("CSS copied to clipbaord");
         }
     },
     computed: {
@@ -25,11 +31,6 @@ const vm = Vue.createApp({
                 rotateZ(${this.rotateZ}deg)
                 `,
             };
-        },
-        // perspectiveStyles() {
-        //     return {
-        //         perspective: `${this.perspective}px`
-        //     };
-        // }
+        }
     }
 }).mount("#app");
