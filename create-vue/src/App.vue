@@ -11,8 +11,9 @@ export default {
     }
   },
   methods: {
-    addAgeBy3(num) {
-      this.age += num
+    addAgeBy3($event, parent_params) {
+      this.age += $event
+      this.age += parent_params
     }
   }
 }
@@ -21,7 +22,7 @@ export default {
 <template>
   <p>Hey</p>
   <Greeting :age="age" />
-  <User :age="age" @increment-age="addAgeBy3" @decrement-age="age--" />
+  <User :age="age" @increment-age="addAgeBy3($event, 1)" @decrement-age="age--" />
   <!-- <button @click="age++">+</button>
   <button @click="age--">-</button> -->
 </template>
