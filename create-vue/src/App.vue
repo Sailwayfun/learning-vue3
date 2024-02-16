@@ -8,5 +8,6 @@ export default {
 </script>
 
 <template>
+  <p>Hey</p>
   <Greeting />
 </template>
