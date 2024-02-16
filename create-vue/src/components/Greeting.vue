@@ -13,17 +13,13 @@ export default {
         return value > 0
       }
     }
-  },
-  computed: {
-    customGreeting() {
-      return this.age >= 18 ? 'Hi, do you wanna have a drink?' : 'You are to young to have a drink!'
-    }
   }
 }
 </script>
 
 <template>
-  <h3>{{ customGreeting }}</h3>
+  <h3 v-if="age < 18">You are to young to have a drink!</h3>
+  <h3 v-else>Hi, do you wanna have a drink?</h3>
   <p>{{ msg }}</p>
 </template>
 
