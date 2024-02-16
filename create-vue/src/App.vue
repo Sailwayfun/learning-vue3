@@ -9,6 +9,11 @@ export default {
     return {
       age: 20
     }
+  },
+  methods: {
+    addAgeBy3(num) {
+      this.age += num
+    }
   }
 }
 </script>
@@ -16,7 +21,7 @@ export default {
 <template>
   <p>Hey</p>
   <Greeting :age="age" />
-  <User :age="age" />
-  <button @click="age++">+</button>
-  <button @click="age--">-</button>
+  <User :age="age" @increment-age="addAgeBy3" @decrement-age="age--" />
+  <!-- <button @click="age++">+</button>
+  <button @click="age--">-</button> -->
 </template>
