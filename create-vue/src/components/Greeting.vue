@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <h3 v-if="age < 18">You are to young to have a drink!</h3>
+  <h3 v-if="age < 18">You are too young to have a drink!</h3>
   <h3 v-else>Hi, do you wanna have a drink?</h3>
   <p>{{ msg }}</p>
 </template>
