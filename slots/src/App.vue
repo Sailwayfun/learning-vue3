@@ -6,13 +6,18 @@ export default {
   components: {
     AppForm,
   },
+  data() {
+    return {
+      help: "This is some help text",
+    };
+  },
 };
 </script>
 
 <template>
   <AppForm>
     <template #help>
-      <p>This is some help text.</p>
+      <p>{{ help }}.</p>
     </template>
     <template #fields>
       <input type="text" placeholder="email" />
