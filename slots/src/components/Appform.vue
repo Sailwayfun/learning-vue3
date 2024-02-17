@@ -1,6 +1,14 @@
 <template>
   <form>
-    <slot>Default Content</slot>
+    <div>
+      <slot name="help">No help text</slot>
+    </div>
+    <div>
+      <slot name="fields">No input fields</slot>
+    </div>
+    <div>
+      <slot name="buttons">No buttons</slot>
+    </div>
   </form>
 </template>
 
