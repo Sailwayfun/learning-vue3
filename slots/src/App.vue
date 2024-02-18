@@ -39,5 +39,6 @@ export default {
     <template #buttons>
       <button type="submit">Submit</button>
     </template>
+    <p>default slot</p>
   </AppForm>
 </template>
