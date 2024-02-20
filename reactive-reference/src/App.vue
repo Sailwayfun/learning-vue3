@@ -1,7 +1,8 @@
 <template>
   <div>{{ number }}</div>
+  <div>Double</div>
+  <p>{{ double }}</p>
   <button @click="increment">Increment</button>
-  <!-- <button @click="incrementPrimitive">Increment Reactive Primitive</button> -->
   <p>{{ name }}</p>
   <p>{{ age }}</p>
   <!-- <p>{{ somePrimitive }}</p> -->
@@ -13,10 +14,27 @@
 </template>
 
 <script>
-import { ref, reactive, toRefs, watch } from "vue";
+import {
+  ref,
+  reactive,
+  toRefs,
+  watch,
+  watchEffect,
+  computed,
+  onBeforeMount,
+  onMounted,
+} from "vue";
 export default {
   name: "App",
   setup() {
+    onBeforeMount(() => {
+      console.log(Date.now(), "onBeforeMount()");
+    });
+
+    onMounted(() => {
+      console.log(Date.now(), "onMounted()");
+    });
+
     let number = ref(0);
 
     function increment() {
@@ -41,7 +59,15 @@ export default {
     let phrase = ref("");
     let reversedPhrase = ref("");
 
-    watch(phrase, (newVal, oldVal) => {
+    const double = computed(() => {
+      return number.value * 2;
+    });
+
+    // watch(phrase, (newVal, oldVal) => {
+    //   reversedPhrase.value = [...phrase.value].reverse().join("");
+    // });
+
+    watchEffect(() => {
       reversedPhrase.value = [...phrase.value].reverse().join("");
     });
 
@@ -53,6 +79,7 @@ export default {
       // somePrimitive,
       phrase,
       reversedPhrase,
+      double,
     };
   },
 };
