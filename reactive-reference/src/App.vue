@@ -13,74 +13,29 @@
   </div>
 </template>
 
-<script>
-import {
-  ref,
-  reactive,
-  toRefs,
-  watch,
-  watchEffect,
-  computed,
-  onBeforeMount,
-  onMounted,
-} from "vue";
-export default {
-  name: "App",
-  setup() {
-    onBeforeMount(() => {
-      console.log(Date.now(), "onBeforeMount()");
-    });
+<script setup>
+import { useNumber } from "./hooks/number";
+import { usePhrase } from "./hooks/phrase";
+import { reactive, toRefs, onBeforeMount, onMounted } from "vue";
+onBeforeMount(() => {
+  console.log(Date.now(), "onBeforeMount()");
+});
 
-    onMounted(() => {
-      console.log(Date.now(), "onMounted()");
-    });
+onMounted(() => {
+  console.log(Date.now(), "onMounted()");
+});
 
-    let number = ref(0);
+const { number, increment, double } = useNumber();
+const { phrase, reversedPhrase } = usePhrase();
 
-    function increment() {
-      number.value++;
-    }
+const user = reactive({
+  name: "John",
+  age: 20,
+});
 
-    const user = reactive({
-      name: "John",
-      age: 20,
-    });
+const { name, age } = toRefs(user);
 
-    setTimeout(() => {
-      user.name = "Luis";
-    }, 3000);
-
-    // let somePrimitive = reactive(3);
-
-    // function incrementPrimitive() {
-    //   somePrimitive++;
-    // }
-
-    let phrase = ref("");
-    let reversedPhrase = ref("");
-
-    const double = computed(() => {
-      return number.value * 2;
-    });
-
-    // watch(phrase, (newVal, oldVal) => {
-    //   reversedPhrase.value = [...phrase.value].reverse().join("");
-    // });
-
-    watchEffect(() => {
-      reversedPhrase.value = [...phrase.value].reverse().join("");
-    });
-
-    return {
-      number,
-      increment,
-      // incrementPrimitive,
-      ...toRefs(user),
-      // somePrimitive,
-      phrase,
-      reversedPhrase,
-      double,
-    };
-  },
-};
+setTimeout(() => {
+  user.name = "Luis";
+}, 3000);
 </script>
